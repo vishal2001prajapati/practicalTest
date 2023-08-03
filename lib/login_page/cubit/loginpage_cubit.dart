@@ -7,7 +7,6 @@ import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'loginpage_cubit.freezed.dart';
-
 part 'loginpage_state.dart';
 
 class LoginPageCubit extends Cubit<LoginPageState> {
@@ -35,15 +34,15 @@ class LoginPageCubit extends Cubit<LoginPageState> {
       accountFound = true;
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
-        // case 'user-not-found':
-        //   accountFound = false;
-        //   emit(
-        //     state.copyWith(
-        //       errorMessage: "Email is not found, please create an account",
-        //       status: FormzSubmissionStatus.failure,
-        //     ),
-        //   );
-        //   break;
+        case 'user-not-found':
+          accountFound = false;
+          emit(
+            state.copyWith(
+              errorMessage: "Email is not found, please create an account",
+              status: FormzSubmissionStatus.failure,
+            ),
+          );
+          break;
         case 'wrong-password':
           emit(
             state.copyWith(

@@ -16,8 +16,6 @@ class UserPage extends StatelessWidget {
 
   final PageController _pageController = PageController();
 
-  int realoadValue = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +39,6 @@ class UserPage extends StatelessWidget {
                   Expanded(
                     child: PageView.builder(
                       onPageChanged: (value) {
-                        // context.read<UserPageCubit>().realod(
-                        //       index: -1,
-                        //     );
                         context.read<UserPageCubit>().changCurrentPage(
                               index: value,
                             );
@@ -88,11 +83,9 @@ class UserPage extends StatelessWidget {
           if (pageUsers.length == 2) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     _buildTwoItem(pageUsers),
                   ],
@@ -105,34 +98,33 @@ class UserPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _threeItem(pageUsers),
+                _buildThreeItem(pageUsers),
               ],
             );
           }
           if (pageUsers.length == 1) {
-            return Center(
-              child: Column(
-                children: [
-                  const CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(
-                      'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
-                    ),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(
+                    'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    pageUsers[0],
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  pageUsers[0],
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
                   ),
-                ],
-              ),
+                ),
+              ],
             );
           }
-          if (pageUsers.isEmpty) {
+          if (state.users.isEmpty) {
             return const Center(
               child: Text(
                 'Data not found!!',
@@ -227,7 +219,7 @@ class UserPage extends StatelessWidget {
     );
   }
 
-  Widget _threeItem(List<String> users) {
+  Widget _buildThreeItem(List<String> users) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
