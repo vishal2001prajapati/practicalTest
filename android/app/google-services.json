@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "721678147898",
+    "project_id": "practicalofchatuser",
+    "storage_bucket": "practicalofchatuser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721678147898:android:ce13c7c36f30fecba33003",
+        "android_client_info": {
+          "package_name": "com.example.first_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721678147898-qcq55im4ggt7oa1dg08ncjvoceaeqiu8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYBIhgiCJ4059MQQcBB2fTAHOCRiPk0Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721678147898-qcq55im4ggt7oa1dg08ncjvoceaeqiu8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
