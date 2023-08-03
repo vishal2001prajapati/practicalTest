@@ -196,6 +196,9 @@ class UserPage extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(
+          width: 60,
+        ),
         Column(
           children: [
             const CircleAvatar(
